@@ -1,0 +1,947 @@
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+  /compensations:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Compensation'
+              examples:
+                compensations_json:
+                  value:
+                    - id: 1
+                      sickLeaveId: 1
+                      assessmentId: 1
+                      accidentId: 1
+                      employeeId: A string
+                      amount: value
+                      method: A string
+                      date: value
+                      status: A string
+          description: Get list of compensations
+      tags:
+        - compensations
+      operationId: GetCompensation
+      summary: Get list of compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Compensation'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  sickLeaveId: 1
+                  assessmentId: 1
+                  accidentId: 1
+                  employeeId: A string
+                  amount: value
+                  method: A string
+                  date: value
+                  status: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: Changed Compensation
+      operationId: Post Compensation
+      summary: Post Compensation
+    summary: Global operations on compensations
+  '/compensations/{id}':
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: compensations with specified id
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Compensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+      operationId: GetCompensationById
+      summary: Get Compensation by id
+      description: Get Compensation by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Compensation'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  sickLeaveId: 1
+                  assessmentId: 1
+                  accidentId: 1
+                  employeeId: A string
+                  amount: value
+                  method: A string
+                  date: value
+                  status: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: Changed Compensation
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Compensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+      operationId: PatchCompensation
+      summary: Patch existing Compensation
+    summary: Specific operation on compensations
+    parameters:
+      - name: id
+        description: Compensation id
+        schema:
+          type: integer
+        in: path
+        required: true
+openapi: 3.1.0
+components:
+  schemas:
+    Compensation:
+      title: Root Type for Compensation
+      description: The root of the Compensation type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Compensation
+          type: integer
+        sickLeaveId:
+          description: sickLeaveId of this Compensation
+          type: integer
+        assessmentId:
+          description: assessmentId of this Compensation
+          type: integer
+        accidentId:
+          description: accidentId of this Compensation
+          type: integer
+        employeeId:
+          description: employeeId of this Compensation
+          type: string
+        amount:
+          description: amount of this Compensation
+          type: string
+        method:
+          description: method of this Compensation
+          type: string
+        date:
+          description: date of this Compensation
+          type: string
+        status:
+          description: status of this Compensation
+          type: string
+      example:
+        id: 1
+        sickLeaveId: 1
+        assessmentId: 1
+        accidentId: 1
+        employeeId: A string
+        amount: value
+        method: A string
+        date: value
+        status: A string
+tags:
+  - name: Compensation
+    description: Compensation resource
+info:
+  title: Compensation
+  version: 0.0.1
+  description: API definition of compensation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+tags:
+  - name: Compensation
+    description: Compensation resource
+info:
+  version: 0.0.1
+  description: API definition of compensation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+tags:
+  - name: Compensation
+    description: Compensation resource
+info:
+  version: 0.0.1
+  description: API definition of compensation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+tags:
+  - name: Compensation
+    description: Compensation resource
+info:
+  version: 0.0.1
+  description: API definition of compensation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+tags:
+  - name: Compensation
+    description: Compensation resource
+info:
+  version: 0.0.1
+  description: API definition of compensation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+tags:
+  - name: Compensation
+    description: Compensation resource
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+tags:
+  - name: Compensation
+    description: Compensation resource
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+openapi: 3.1.0
+---
+paths:
+  '/compensations/{id}/':
+    summary: create Compensation operation on compensations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sickLeaveId:
+                  description: sickLeaveId of this CreateCompensation
+                  type: integer
+                assessmentId:
+                  description: assessmentId of this CreateCompensation
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateCompensation
+                  type: integer
+                employeeId:
+                  description: employeeId of this CreateCompensation
+                  type: string
+                averageSalary:
+                  description: averageSalary of this CreateCompensation
+                  type: string
+                period:
+                  description: period of this CreateCompensation
+                  type: integer
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compensation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    sickLeaveId: 1
+                    assessmentId: 1
+                    accidentId: 1
+                    employeeId: A string
+                    amount: value
+                    method: A string
+                    date: value
+                    status: A string
+          description: CreateCompensation Operation
+      operationId: CreateCompensation
+      summary: CreateCompensation
+      description: CreateCompensation
+tags:
+  - name: Compensation
+    description: Compensation resource

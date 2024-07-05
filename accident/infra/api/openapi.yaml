@@ -1,0 +1,72 @@
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: request sickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employeeId:
+                  description: employeeId of this RequestSickLeaveBenefit
+                  type: string
+                businessCode:
+                  description: businessCode of this RequestSickLeaveBenefit
+                  type: string
+                period:
+                  description: period of this RequestSickLeaveBenefit
+                  type: integer
+                id:
+                  description: id of this RequestSickLeaveBenefit
+                  type: integer
+            examples:
+              Example 0:
+                value:
+                  employeeId: user01
+                  businessCode: bc_1
+                  period: 10
+      parameters:
+        - name: id
+          description: RequestSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples:
+            Example 0:
+              value: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                Example 0:
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: bc_1
+                    employeeId: user01
+                    averageSalary: null
+                    period: 10
+                    status: 휴업급여 요청됨
+                    date: N/A
+          description: RequestSickLeaveBenefit Operation
+      operationId: RequestSickLeaveBenefit
+      summary: RequestSickLeaveBenefit
+      description: RequestSickLeaveBenefit
+openapi: 3.1.0
+info:
+  version: 0.0.1
+  description: API definition of accident
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'

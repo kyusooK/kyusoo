@@ -1,0 +1,4300 @@
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+  /assessments:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Assessment'
+              examples:
+                assessments_json:
+                  value:
+                    - id: 1
+                      accidentId: 1
+                      businessCode: A string
+                      employeeId: A string
+                      assessorId: 1
+                      hospitalCode: A string
+                      doctorNote: A string
+                      results: A string
+                      date: value
+                      comments: A string
+          description: Get list of assessments
+      tags:
+        - assessments
+      operationId: GetAssessment
+      summary: Get list of assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Assessment'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  accidentId: 1
+                  businessCode: A string
+                  employeeId: A string
+                  assessorId: 1
+                  hospitalCode: A string
+                  doctorNote: A string
+                  results: A string
+                  date: value
+                  comments: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: Changed Assessment
+      operationId: Post Assessment
+      summary: Post Assessment
+    summary: Global operations on assessments
+  '/assessments/{id}':
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: assessments with specified id
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Assessment name
+          schema:
+            type: integer
+          in: path
+          required: true
+      operationId: GetAssessmentById
+      summary: Get Assessment by id
+      description: Get Assessment by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Assessment'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  accidentId: 1
+                  businessCode: A string
+                  employeeId: A string
+                  assessorId: 1
+                  hospitalCode: A string
+                  doctorNote: A string
+                  results: A string
+                  date: value
+                  comments: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: Changed Assessment
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Assessment name
+          schema:
+            type: integer
+          in: path
+          required: true
+      operationId: PatchAssessment
+      summary: Patch existing Assessment
+    summary: Specific operation on assessments
+    parameters:
+      - name: id
+        description: Assessment id
+        schema:
+          type: integer
+        in: path
+        required: true
+openapi: 3.1.0
+components:
+  schemas:
+    Assessment:
+      title: Root Type for Assessment
+      description: The root of the Assessment type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Assessment
+          type: integer
+        accidentId:
+          description: accidentId of this Assessment
+          type: integer
+        businessCode:
+          description: businessCode of this Assessment
+          type: string
+        employeeId:
+          description: employeeId of this Assessment
+          type: string
+        assessorId:
+          description: assessorId of this Assessment
+          type: integer
+        hospitalCode:
+          description: hospitalCode of this Assessment
+          type: string
+        doctorNote:
+          description: doctorNote of this Assessment
+          type: string
+        results:
+          description: results of this Assessment
+          type: string
+        date:
+          description: date of this Assessment
+          type: string
+        comments:
+          description: comments of this Assessment
+          type: string
+      example:
+        id: 1
+        accidentId: 1
+        businessCode: A string
+        employeeId: A string
+        assessorId: 1
+        hospitalCode: A string
+        doctorNote: A string
+        results: A string
+        date: value
+        comments: A string
+tags:
+  - name: Assessment
+    description: Assessment resource
+info:
+  title: SickLeave
+  version: 0.0.1
+  description: API definition of sickLeave
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+tags:
+  - name: Assessment
+    description: Assessment resource
+info:
+  version: 0.0.1
+  description: API definition of sickLeave
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+tags:
+  - name: Assessment
+    description: Assessment resource
+info:
+  version: 0.0.1
+  description: API definition of sickLeave
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+tags:
+  - name: Assessment
+    description: Assessment resource
+info:
+  version: 0.0.1
+  description: API definition of sickLeave
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+tags:
+  - name: Assessment
+    description: Assessment resource
+info:
+  version: 0.0.1
+  description: API definition of sickLeave
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+openapi: 3.1.0
+---
+paths:
+  '/sickLeaves/{id}/':
+    summary: create SickLeave benefit operation on sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessmentId:
+                  description: accessmentId of this CreateSickLeaveBenefit
+                  type: integer
+                accidentId:
+                  description: accidentId of this CreateSickLeaveBenefit
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateSickLeaveBenefit
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateSickLeaveBenefit
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateSickLeaveBenefit name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: CreateSickLeaveBenefit Operation
+      operationId: CreateSickLeaveBenefit
+      summary: CreateSickLeaveBenefit
+      description: CreateSickLeaveBenefit
+  '/assessments/{id}/':
+    summary: create Investigation operation on assessments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accidentId:
+                  description: accidentId of this CreateInvestigation
+                  type: integer
+                businessCode:
+                  description: businessCode of this CreateInvestigation
+                  type: string
+                employeeId:
+                  description: employeeId of this CreateInvestigation
+                  type: string
+                hospitalCode:
+                  description: hospitalCode of this CreateInvestigation
+                  type: string
+                doctorNote:
+                  description: doctorNote of this CreateInvestigation
+                  type: string
+                accidentType:
+                  description: accidentType of this CreateInvestigation
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assessment'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    assessorId: 1
+                    hospitalCode: A string
+                    doctorNote: A string
+                    results: A string
+                    date: value
+                    comments: A string
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+tags:
+  - name: SickLeave
+    description: SickLeave resource

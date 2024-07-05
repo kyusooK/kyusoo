@@ -1,0 +1,191 @@
+---
+openapi: 3.1.0
+info:
+  title: Statistics
+  version: 0.0.1
+  description: API definition of statistics
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+paths:
+  /statistics:
+    summary: Global operations on statistics
+    get:
+      tags:
+        - statistics
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Statistics'
+              examples:
+                statistics_json:
+                  value:
+                    - id: 1
+                      accidentId: 1
+                      hospitalCode: A string
+                      businessCode: A string
+                      results: A string
+                      date: value
+          description: Get list of statistics
+      operationId: GetStatistics
+      summary: Get list of statistics
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Statistics'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  accidentId: 1
+                  hospitalCode: A string
+                  businessCode: A string
+                  results: A string
+                  date: value
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    hospitalCode: A string
+                    businessCode: A string
+                    results: A string
+                    date: value
+          description: Changed Statistics
+      operationId: Post Statistics
+      summary: Post Statistics
+  '/statistics/{id}':
+    summary: Specific operation on statistics
+    get:
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Statistics name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    hospitalCode: A string
+                    businessCode: A string
+                    results: A string
+                    date: value
+          description: statistics with specified id
+      operationId: GetStatisticsById
+      summary: Get Statistics by id
+      description: Get Statistics by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Statistics'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  accidentId: 1
+                  hospitalCode: A string
+                  businessCode: A string
+                  results: A string
+                  date: value
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Statistics name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accidentId: 1
+                    hospitalCode: A string
+                    businessCode: A string
+                    results: A string
+                    date: value
+          description: Changed Statistics
+      operationId: PatchStatistics
+      summary: Patch existing Statistics
+    parameters:
+      - name: id
+        description: Statistics id
+        schema:
+          type: integer
+        in: path
+        required: true
+components:
+  schemas:
+    Statistics:
+      title: Root Type for Statistics
+      description: The root of the Statistics type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Statistics
+          type: integer
+        accidentId:
+          description: accidentId of this Statistics
+          type: integer
+        hospitalCode:
+          description: hospitalCode of this Statistics
+          type: string
+        businessCode:
+          description: businessCode of this Statistics
+          type: string
+        results:
+          description: results of this Statistics
+          type: string
+        date:
+          description: date of this Statistics
+          type: string
+      example:
+        id: 1
+        accidentId: 1
+        hospitalCode: A string
+        businessCode: A string
+        results: A string
+        date: value
+tags:
+  - name: Statistics
+    description: Statistics resource

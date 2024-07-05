@@ -1,0 +1,360 @@
+---
+paths:
+  /sickLeaves:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SickLeave'
+              examples:
+                sickLeaves_json:
+                  value:
+                    - id: 1
+                      accessmentId: 1
+                      accidentId: 1
+                      businessCode: A string
+                      employeeId: A string
+                      averageSalary: value
+                      period: 1
+                      status: A string
+                      date: value
+          description: Get list of sickLeaves
+      tags:
+        - sickLeaves
+      operationId: GetSickLeave
+      summary: Get list of sickLeaves
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SickLeave'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  accessmentId: 1
+                  accidentId: 1
+                  businessCode: A string
+                  employeeId: A string
+                  averageSalary: value
+                  period: 1
+                  status: A string
+                  date: value
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: Changed SickLeave
+      operationId: Post SickLeave
+      summary: Post SickLeave
+    summary: Global operations on sickLeaves
+  '/sickLeaves/{id}':
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: sickLeaves with specified id
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: SickLeave name
+          schema:
+            type: integer
+          in: path
+          required: true
+      operationId: GetSickLeaveById
+      summary: Get SickLeave by id
+      description: Get SickLeave by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SickLeave'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  accessmentId: 1
+                  accidentId: 1
+                  businessCode: A string
+                  employeeId: A string
+                  averageSalary: value
+                  period: 1
+                  status: A string
+                  date: value
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: Changed SickLeave
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: SickLeave name
+          schema:
+            type: integer
+          in: path
+          required: true
+      operationId: PatchSickLeave
+      summary: Patch existing SickLeave
+    summary: Specific operation on sickLeaves
+    parameters:
+      - name: id
+        description: SickLeave id
+        schema:
+          type: integer
+        in: path
+        required: true
+  '/sickLeaves/{id}/applysalary':
+    summary: apply Salary operation on sickLeaves
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                averageSalary:
+                  description: averageSalary of this ApplySalary
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: ApplySalary name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: ApplySalary Operation
+      operationId: ApplySalary
+      summary: ApplySalary
+      description: ApplySalary
+openapi: 3.1.0
+components:
+  schemas:
+    SickLeave:
+      title: Root Type for SickLeave
+      description: The root of the SickLeave type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this SickLeave
+          type: integer
+        accessmentId:
+          description: accessmentId of this SickLeave
+          type: integer
+        accidentId:
+          description: accidentId of this SickLeave
+          type: integer
+        businessCode:
+          description: businessCode of this SickLeave
+          type: string
+        employeeId:
+          description: employeeId of this SickLeave
+          type: string
+        averageSalary:
+          description: averageSalary of this SickLeave
+          type: string
+        period:
+          description: period of this SickLeave
+          type: integer
+        status:
+          description: status of this SickLeave
+          type: string
+        date:
+          description: date of this SickLeave
+          type: string
+      example:
+        id: 1
+        accessmentId: 1
+        accidentId: 1
+        businessCode: A string
+        employeeId: A string
+        averageSalary: value
+        period: 1
+        status: A string
+        date: value
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+info:
+  title: SickLeave
+  version: 0.0.1
+  description: API definition of sickLeave
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+---
+paths:
+  '/sickLeaves/{id}/applysalary':
+    summary: apply Salary operation on sickLeaves
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                averageSalary:
+                  description: averageSalary of this ApplySalary
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: ApplySalary name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: ApplySalary Operation
+      operationId: ApplySalary
+      summary: ApplySalary
+      description: ApplySalary
+tags:
+  - name: SickLeave
+    description: SickLeave resource
+---
+paths:
+  '/sickLeaves/{id}/applysalary':
+    summary: apply Salary operation on sickLeaves
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                averageSalary:
+                  description: averageSalary of this ApplySalary
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: ApplySalary name
+          schema:
+            type: integer
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SickLeave'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    accessmentId: 1
+                    accidentId: 1
+                    businessCode: A string
+                    employeeId: A string
+                    averageSalary: value
+                    period: 1
+                    status: A string
+                    date: value
+          description: ApplySalary Operation
+      operationId: ApplySalary
+      summary: ApplySalary
+      description: ApplySalary
+tags:
+  - name: SickLeave
+    description: SickLeave resource
